@@ -1,0 +1,16 @@
+name: "Annotate Coverage"
+description: "GitHub Action for adding annotations for uncovered lines in PRs"
+author: "Andrei Andreev"
+branding:
+  icon: "check"
+  color: "blue"
+inputs:
+  json_path:
+    description: "Path to the JSON file containing coverage data."
+    required: true
+    default: "diff_coverage.json"
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  args:
+    - "${{ inputs.json_path }}"

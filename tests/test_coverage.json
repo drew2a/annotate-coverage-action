@@ -1,0 +1,35 @@
+{
+  "report_name": "XML",
+  "diff_name": "origin/main...HEAD, staged and unstaged changes",
+  "src_stats": {
+    "file.py": {
+      "percent_covered": 25.0,
+      "violation_lines": [
+        24,
+        25,
+        26
+      ],
+      "covered_lines": [
+        23
+      ],
+      "violations": [
+        [
+          24,
+          null
+        ],
+        [
+          25,
+          null
+        ],
+        [
+          26,
+          null
+        ]
+      ]
+    }
+  },
+  "total_num_lines": 4,
+  "total_num_violations": 3,
+  "total_percent_covered": 25,
+  "num_changed_lines": 8
+}
