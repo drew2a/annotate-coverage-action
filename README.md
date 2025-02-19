@@ -1,3 +1,6 @@
+[![Build and Test](https://github.com/drew2a/annotate-coverage-action/actions/workflows/ci.yml/badge.svg)](https://github.com/drew2a/annotate-coverage-action/actions/workflows/ci.yml)
+
+
 # Annotate Coverage Action
 
 This GitHub Action adds annotations for uncovered lines in PRs based on a coverage report.
