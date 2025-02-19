@@ -18,3 +18,6 @@ This GitHub Action adds annotations for uncovered lines in PRs based on a covera
   with:
     json_path: "diff_coverage.json"
 ```
+
+### Example of added annotations
+![image](https://github.com/user-attachments/assets/7de7ac76-f55d-46e5-ab11-b01538a2c673)
