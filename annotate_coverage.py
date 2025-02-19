@@ -20,6 +20,7 @@ Example output:
 """
 
 import json
+import os
 import sys
 
 if len(sys.argv) != 2:
@@ -36,13 +37,15 @@ annotations = []
 
 for file_path, stats in src_stats.items():
     violations = stats.get("violations", [])
-
     for line, _ in violations:
-        message = (
-            f"Line {line} is not covered by tests. Consider adding test cases to improve coverage."
-        )
+        message = f"Line {line} is not covered by tests. Consider adding test cases to improve coverage."
+        annotation = f"::warning file={file_path},line={line}::{message}"
+        annotations.append(annotation)
 
-        annotation = (
-            f"::warning file={file_path},line={line}::{message}"
-        )
-        print(annotation)
+# Combine all annotations into a single string
+output = "\n".join(annotations)
+print(output)
+
+# Set the output for the GitHub Actions step (using the recommended GITHUB_OUTPUT method)
+with open(os.environ["GITHUB_OUTPUT"], "a") as fh:
+    fh.write(f"annotations<<EOF\n{output}\nEOF\n")
