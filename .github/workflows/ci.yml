@@ -9,16 +9,12 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Run Annotate Coverage Action
-        id: annotate
+      - run: python annotate_coverage.py tests/test_coverage.json > generated_output.txt
+      - run: diff -u tests/expected_output.txt generated_output.txt
+
+      - name: Run Annotate Coverage Action with test annotations
         uses: ./
         with:
           json_path: "tests/test_coverage.json"
-
-      - name: Compare generated output with expected
-        run: |
-          echo "${{ steps.annotate.outputs.annotations }}" > generated_output.txt
-          diff -u tests/expected_output.txt generated_output.txt
