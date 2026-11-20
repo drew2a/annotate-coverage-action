@@ -9,7 +9,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - run: python annotate_coverage.py tests/test_coverage.json > generated_output.txt
       - run: diff -u tests/expected_output.txt generated_output.txt
